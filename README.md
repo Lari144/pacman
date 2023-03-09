@@ -11,3 +11,8 @@
     - Ein QR-Code muss generiert werden
         - Lagerplatz muss zugewiesen werden (Daten von Datenbank)
     - Aus einem QR-Code müssen Informationen gelesen werden
+    
+## Test-Datenmodell
+Für Testzwecke wird vorweg dieses Datenmodell verwendet.
+
+[!datamodel](https://github.com/denisepostl/pacman/blob/main/Test_Datenmodell.png)
