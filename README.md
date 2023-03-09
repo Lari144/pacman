@@ -5,6 +5,9 @@
       - eigenes Backend (Dummy) zum testen erstellen --> Datenbank erstellen
     - Informationen aus einem QR-Code lesen
       - mit Handy/Webscanner
+ 
+### Ziel 09.03.2023
+    - Eine QR-Code Generierung für Testzwecke
     
 
 ## Features
