@@ -15,4 +15,4 @@
 ## Test-Datenmodell
 Für Testzwecke wird vorweg dieses Datenmodell verwendet.
 
-[!datamodel](https://github.com/denisepostl/pacman/blob/main/Test_Datenmodell.png)
+![datamodel](https://github.com/denisepostl/pacman/blob/main/Test_Datenmodell.png)
