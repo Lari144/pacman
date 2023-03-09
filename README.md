@@ -2,7 +2,7 @@
 
 ## Ziele
     - QR-Code Generierung
-      - eigenes Backend (Dummy) zum testen erstellen
+      - eigenes Backend (Dummy) zum testen erstellen --> Datenbank erstellen
     - Informationen aus einem QR-Code lesen
       - mit Handy/Webscanner
     
