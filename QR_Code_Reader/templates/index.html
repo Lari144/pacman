@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>QR-Code Generator und Reader</title>
+  </head>
+  <body>
+    <h1>QR-Code Generator und Reader</h1>
+    
+    <h2>QR-Code generieren</h2>
+    <form method="POST">
+      <label for="first_name">Vorname:</label>
+      <input type="text" id="first_name" name="first_name"><br><br>
+      
+      <label for="last_name">Nachname:</label>
+      <input type="text" id="last_name" name="last_name"><br><br>
+      
+      <label for="address">Adresse:</label>
+      <input type="text" id="address" name="address"><br><br>
+      
+      <label for="order_date">Bestelldatum:</label>
+      <input type="text" id="order_date" name="order_date"><br><br>
+      
+      <label for="product_description">Produktbeschreibung:</label>
+      <input type="text" id="product_description" name="product_description"><br><br>
+      
+      <label for="qr_description">QR-Code-Beschreibung:</label>
+      <input type="text" id="qr_description" name="qr_description"><br><br>
+      
+      <label for="location_description">Ortsbeschreibung:</label>
+      <input type="text" id="location_description" name="location_description"><br><br>
+      
+      <input type="submit" value="QR-Code generieren">
+    </form>
+    
+    {% if qr_code_base64 %}
+      <h2>Generierter QR-Code</h2>
+      <img src="data:image/png;base64, {{ qr_code_base64 }}">
+    {% endif %}
+    
+    <h2>QR-Code lesen</h2>
+    <form method="POST">
+      <label for="qr_id">QR-Code-ID:</label>
+      <input type="text" id="qr_id" name="qr_id"><br><br>
+      
+      <input type="submit" value="QR-Code lesen">
+    </form>
+    
+    {% if qr_code_data %}
+      <h2>Decodierter QR-Code</h2>
+      <p>{{ qr_code_data }}</p>
+    {% endif %}
+    
+  </body>
+</html>
