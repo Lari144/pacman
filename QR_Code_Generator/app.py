@@ -51,7 +51,7 @@ def create_tables():
     conn.close()
 
 @app.route("/", methods=["GET", "POST"])
-def index(self):
+def index():
     if request.method == "POST":
         first_name = request.form["first_name"]
         last_name = request.form["last_name"]
@@ -78,7 +78,7 @@ def index(self):
         cursor.execute("INSERT INTO locations (product_id, description) VALUES (?, ?)",
                        (product_id, location_description))
 
-        self.qr_id = cursor.lastrowid
+        qr_id = cursor.lastrowid
 
         qr = qrcode.QRCode(version=1, error_correction=qrcode.constants.ERROR_CORRECT_L, box_size=10, border=4)
         qr.add_data(qr_description)
@@ -89,7 +89,7 @@ def index(self):
         img.save(buf, format="PNG")
         qr_code_base64 = base64.b64encode(buf.getvalue()).decode("utf-8")
 
-        cursor.execute("UPDATE qr_codes SET qr_code = ? WHERE qr_id = ?", (qr_code_base64, self.qr_id))
+        cursor.execute("UPDATE qr_codes SET qr_code = ? WHERE qr_id = ?", (qr_code_base64, qr_id))
 
         conn.commit()
         conn.close()
