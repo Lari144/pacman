@@ -19,3 +19,10 @@
 Für Testzwecke wird vorweg dieses Datenmodell verwendet.
 
 ![datamodel](https://github.com/denisepostl/pacman/blob/main/Test_Datenmodell.png)
+
+## Erstellung und Aktivierung der Virtuellen Umgebung
+    - python -m venv venv
+    - .\venv\Scripts\Activate.ps1
+
+## Installation der Requirements
+    - pip install -r requirements.txt
