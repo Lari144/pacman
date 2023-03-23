@@ -1,11 +1,12 @@
 import pyzbar.pyzbar
+from QR_Code_Generator import app
 from pyzbar.pyzbar import decode
 from PIL import Image
 import sqlite3
 import base64
 import io
 
-conn = sqlite3.connect("QR_Code_Generator/qr_codes.db")
+conn = sqlite3.connect("qr_codes.db")
 cursor = conn.cursor()
 
 # Abfrage des QR-Codes aus der Datenbank
