@@ -64,8 +64,8 @@
             display: block;
             max-width: 100%;
             margin-top: 1em;
-            margin-left: 30%;
-            margin-right: 30%;
+            margin-left: 42%;
+            margin-right: 42%;
         }
 
         h2 {
@@ -74,6 +74,13 @@
             margin-bottom: 1em;
             text-align: center;
             color: #333;
+        }
+
+        a {
+            font-size: 1.0em;
+            color: black;
+            margin-top: -40px;
+
         }
     </style>
 
@@ -107,6 +114,7 @@
         {% if qr_code_base64 %}
         <h2>Generated QR Code:</h2>
         <img src="data:image/png;base64,{{ qr_code_base64 }}" alt="QR Code">
+        <a href="data:image/pdf;base64, {{qr_code_base64}}" alt="QR Code">QR-Code Download</a>
         {% endif %}
     
     </body>
