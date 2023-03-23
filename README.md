@@ -6,10 +6,12 @@
     - Informationen aus einem QR-Code lesen
       - mit Handy/Webscanner
  
-### Ziel 09.03.2023
+### Ziel 23.03.2023
     - Eine QR-Code Generierung für Testzwecke
     
-
+### Ziel 30.03.2023
+    - Fertiger QR-Code Scanner
+    
 ## Features
     - Ein QR-Code muss generiert werden
         - Lagerplatz muss zugewiesen werden (Daten von Datenbank)
@@ -19,15 +21,8 @@
 Für Testzwecke wird vorweg dieses Datenmodell verwendet.
 
 ![datamodel](https://github.com/denisepostl/pacman/blob/main/Test_Datenmodell.png)
-
-## Erstellung und Aktivierung der Virtuellen Umgebung
-    - python -m venv venv
-    - .\venv\Scripts\Activate.ps1
-
-## Installation der Requirements
-    - pip install -r requirements.txt
     
 ## Dokumentation
-[Entwicklerdokumentation](https://github.com/denisepostl/pacman/blob/main/docs/developer_doc.md) <br> <br>
+[Entwicklerdokumentation](https://github.com/denisepostl/pacman/blob/main/docs/developer_doc.md) <br> 
 [Benutzerdokumentation](https://github.com/denisepostl/pacman/blob/main/docs/user_doc.md)
 
