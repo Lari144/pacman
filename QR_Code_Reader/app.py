@@ -1,3 +1,4 @@
+import pyzbar.pyzbar
 from pyzbar.pyzbar import decode
 from PIL import Image
 import sqlite3
