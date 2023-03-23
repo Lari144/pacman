@@ -4,38 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code Generator</title>
-</head>
-<body>
-    <h1>QR Code Generator</h1>
-    <form action="/" method="POST">
-        <label for="first_name">First Name:</label>
-        <input type="text" id="first_name" name="first_name" required>
-        <br>
-        <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" name="last_name" required>
-        <br>
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address" required>
-        <br>
-        <label for="order_date">Order Date:</label>
-        <input type="date" id="order_date" name="order_date" required>
-        <br>
-        <label for="product_description">Product Description:</label>
-        <input type="text" id="product_description" name="product_description" required>
-        <br>
-        <label for="qr_description">QR Description:</label>
-        <input type="text" id="qr_description" name="qr_description" required>
-        <br>
-        <label for="location_description">Location Description:</label>
-        <input type="text" id="location_description" name="location_description" required>
-        <br>
-        <input type="submit" value="Submit">
-    </form>
-    
-    {% if qr_code_base64 %}
-    <h2>Generated QR Code:</h2>
-    <img src="data:image/png;base64,{{ qr_code_base64 }}" alt="QR Code">
-    {% endif %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
 
-</body>
-</html>
+        h1 {
+            font-size: 2.5em;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 1em;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            display: block;
+            width: 100%;
+            padding: 0.5em;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 1em;
+        }
+
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 0.5em;
+            margin-top: 1em;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            margin-top: 1em;
+            margin-left: 30%;
+            margin-right: 30%;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            text-align: center;
+            color: #333;
+        }
+    </style>
+
+    <body>
+        <h1>QR Code Generator</h1>
+        <form action="/" method="POST">
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name" required>
+            <br>
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="last_name" required>
+            <br>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+            <br>
+            <label for="order_date">Order Date:</label>
+            <input type="date" id="order_date" name="order_date" required>
+            <br>
+            <label for="product_description">Product Description:</label>
+            <input type="text" id="product_description" name="product_description" required>
+            <br>
+            <label for="qr_description">QR Description:</label>
+            <input type="text" id="qr_description" name="qr_description" required>
+            <br>
+            <label for="location_description">Location Description:</label>
+            <input type="text" id="location_description" name="location_description" required>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+        
+        {% if qr_code_base64 %}
+        <h2>Generated QR Code:</h2>
+        <img src="data:image/png;base64,{{ qr_code_base64 }}" alt="QR Code">
+        {% endif %}
+    
+    </body>
+    </html>
+    
