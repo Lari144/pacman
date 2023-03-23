@@ -8,6 +8,7 @@ from fpdf import FPDF
 app = Flask(__name__)
 
 def create_tables():
+    """Create all tables for db."""
     conn = sqlite3.connect("qr_codes.db")
     cursor = conn.cursor()
 
@@ -65,21 +66,21 @@ def index():
         conn = sqlite3.connect("qr_codes.db")
         cursor = conn.cursor()
 
-        cursor.execute("INSERT INTO customers (First_Name, Last_Name, Address) VALUES (?, ?, ?)",
+        cursor.execute("INSERT INTO customers (First_Name, Last_Name, Address) VALUES (?, ?, ?)", #insert Data in customers
                        (first_name, last_name, address))
         customer_id = cursor.lastrowid
 
-        cursor.execute("INSERT INTO products (customer_id, order_date, description) VALUES (?, ?, ?)",
+        cursor.execute("INSERT INTO products (customer_id, order_date, description) VALUES (?, ?, ?)", #insert Data in products
                             (customer_id, order_date, product_description))
         product_id = cursor.lastrowid
 
-        cursor.execute("INSERT INTO qr_codes (product_id, description, qr_code) VALUES (?, ?, ?)",
+        cursor.execute("INSERT INTO qr_codes (product_id, description, qr_code) VALUES (?, ?, ?)", #insert Data in qr_codes
                     (product_id, qr_description, ''))
 
-        cursor.execute("INSERT INTO locations (product_id, description) VALUES (?, ?)",
+        cursor.execute("INSERT INTO locations (product_id, description) VALUES (?, ?)", #insert Data in locations
                        (product_id, location_description))
 
-        qr_id = cursor.lastrowid
+        qr_id = cursor.lastrowid #get qr_id
 
         qr = qrcode.QRCode(version=1, error_correction=qrcode.constants.ERROR_CORRECT_L, box_size=10, border=4)
         qr.add_data(qr_description)
