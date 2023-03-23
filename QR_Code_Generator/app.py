@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_file
 import sqlite3
 import qrcode
 import io
 import base64
+from fpdf import FPDF
 
 app = Flask(__name__)
 
@@ -74,7 +75,7 @@ def index():
 
         cursor.execute("INSERT INTO qr_codes (product_id, description, qr_code) VALUES (?, ?, ?)",
                     (product_id, qr_description, ''))
-        
+
         cursor.execute("INSERT INTO locations (product_id, description) VALUES (?, ?)",
                        (product_id, location_description))
 
@@ -97,6 +98,7 @@ def index():
         return render_template("index.html", qr_code_base64=qr_code_base64)
 
     return render_template("index.html")
+
 
 if __name__ == "__main__":
     create_tables()
