@@ -4,5 +4,5 @@ Beim Ausführen von [app.py](https://github.com/denisepostl/pacman/blob/main/QR_
 einen beliebiegen Browser öffnen und den Generator über den angegebenen Server erreichen. 
 
 <br>
-![Image](https://github.com/denisepostl/pacman/blob/main/img/server.png)
+![Image]([https://github.com/denisepostl/pacman/blob/main/img/server.png](https://github.com/denisepostl/pacman/blob/main/img/server.png?raw=true))
 <br>
