@@ -10,3 +10,9 @@ Nun sollten Sie folgenden Screen sehen:
 ![QR-Code](https://github.com/denisepostl/pacman/blob/main/img/QR_GENERATOR.png)
 
 Hier können Sie nun die Details des Pakets und des Kunden angeben.
+
+Wenn Sie fertig sind, könnnen Sie mittels Klick auf submit den QR-Code generieren:
+![Generate](https://github.com/denisepostl/pacman/blob/main/img/sub.png)
+
+Falls Sie den QR-Code herunterladen möchten, so können Sie dies über Download QR-Code machen:
+![Downalod](https://github.com/denisepostl/pacman/blob/main/img/submit.png)
