@@ -26,3 +26,8 @@ Für Testzwecke wird vorweg dieses Datenmodell verwendet.
 
 ## Installation der Requirements
     - pip install -r requirements.txt
+    
+## Dokumentation
+Entwicklerdokumentation
+Benutzerdokumentation
+
