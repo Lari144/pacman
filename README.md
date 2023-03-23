@@ -28,6 +28,6 @@ Für Testzwecke wird vorweg dieses Datenmodell verwendet.
     - pip install -r requirements.txt
     
 ## Dokumentation
-[Entwicklerdokumentation] (https://github.com/denisepostl/pacman/blob/main/docs/developer_doc.md) <br> <br>
-[Benutzerdokumentation] (https://github.com/denisepostl/pacman/blob/main/docs/user_doc.md)
+[Entwicklerdokumentation](https://github.com/denisepostl/pacman/blob/main/docs/developer_doc.md) <br> <br>
+[Benutzerdokumentation](https://github.com/denisepostl/pacman/blob/main/docs/user_doc.md)
 
