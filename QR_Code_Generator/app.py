@@ -9,6 +9,7 @@ app = Flask(__name__)
 def create_tables():
     conn = sqlite3.connect("qr_codes.db")
     cursor = conn.cursor()
+
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS customers (
         customer_id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -17,11 +18,11 @@ def create_tables():
         Address TEXT NOT NULL
     )
     """)
+
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS products (
         product_id INTEGER PRIMARY KEY AUTOINCREMENT,
         customer_id INTEGER,
-        qr_id INTEGER,
         order_date DATE NOT NULL,
         description TEXT NOT NULL,
         FOREIGN KEY (customer_id) REFERENCES customers (customer_id)
@@ -67,7 +68,7 @@ def index():
                        (first_name, last_name, address))
         customer_id = cursor.lastrowid
 
-        cursor.execute("INSERT INTO products (customer_id, order_date, description) VALUES (?, ?, ?)",
+        cursor.execute("INSERT INTO products (customer_id, order_date, description) VALUES (?, ?, ?, ?)",
                             (customer_id, order_date, product_description))
         product_id = cursor.lastrowid
 
