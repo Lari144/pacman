@@ -4,6 +4,7 @@ import qrcode
 import io
 import base64
 from fpdf import FPDF
+import os
 
 app = Flask(__name__)
 
@@ -52,6 +53,21 @@ def create_tables():
     conn.commit()
     conn.close()
 
+def generate_pdf(qr_code_base64):
+    """Generate PDF with QR-Code image and return the PDF document."""
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font("Arial", size=12)
+    pdf.cell(200, 10, txt="QR Code", ln=1)
+    # Decode base64 string and save the image as a file
+    with open("qr_code.png", "wb") as fh:
+        fh.write(base64.b64decode(qr_code_base64))
+    pdf.image("qr_code.png", x=10, y=20, w=100)
+    pdf.output("qr_code.pdf")
+    # Delete the temporary image file
+    os.remove("qr_code.png")
+    return send_file("qr_code.pdf", as_attachment=True)
+
 @app.route("/", methods=["GET", "POST"])
 def index():
     # Check, if Formular has been sent
@@ -71,44 +87,44 @@ def index():
 
         # Insert the inserted Data for Customer in Table customers
         cursor.execute("INSERT INTO customers (First_Name, Last_Name, Address) VALUES (?, ?, ?)", #insert Data in customers
-                       (first_name, last_name, address))
+                   (first_name, last_name, address))
         customer_id = cursor.lastrowid
 
         # Insert the inserted Data for Product in Table products
-        cursor.execute("INSERT INTO products (customer_id, order_date, description) VALUES (?, ?, ?)", #insert Data in products
-                            (customer_id, order_date, product_description))
+        cursor.execute("INSERT INTO products (customer_id, order_date, description) VALUES (?, ?, ?)", 
+                   (customer_id, order_date, product_description))
         product_id = cursor.lastrowid
 
-        # Insert the inserted Data for QR-Code in Table qr_codes
-        cursor.execute("INSERT INTO qr_codes (product_id, description, qr_code) VALUES (?, ?, ?)", #insert Data in qr_codes
-                    (product_id, qr_description, ''))
-
-        # Insert the inserted Data for Location in Table locations
-        cursor.execute("INSERT INTO locations (product_id, description) VALUES (?, ?)", #insert Data in locations
-                       (product_id, location_description))
-
-        qr_id = cursor.lastrowid # call qr_id
-
-        # Create QR-Code with QRCode-Library
-        qr = qrcode.QRCode(version=1, error_correction=qrcode.constants.ERROR_CORRECT_L, box_size=10, border=4)
-        qr.add_data(qr_description)
+        # Create QR-Code image
+        qr = qrcode.QRCode(version=1, box_size=10, border=5)
+        data = f"{product_description} | {qr_description}"
+        qr.add_data(data)
         qr.make(fit=True)
         img = qr.make_image(fill_color="black", back_color="white")
 
-        # Save images of QR-Code
-        buf = io.BytesIO()
-        img.save(buf, format="PNG")
-        qr_code_base64 = base64.b64encode(buf.getvalue()).decode("utf-8")
+        # Save QR-Code image as base64 string
+        buffer = io.BytesIO()
+        img.save(buffer, format="PNG")
+        qr_code_base64 = base64.b64encode(buffer.getvalue()).decode("utf-8")
+        cursor.execute("INSERT INTO qr_codes (product_id, description, qr_code) VALUES (?, ?, ?)",
+                   (product_id, qr_description, qr_code_base64))
 
-        cursor.execute("UPDATE qr_codes SET qr_code = ? WHERE qr_id = ?", (qr_code_base64, qr_id))
+        # Insert the inserted Data for Location in Table locations
+        cursor.execute("INSERT INTO locations (product_id, description) VALUES (?, ?)",
+                   (product_id, location_description))
 
+        # Commit and Close Connection to Database
         conn.commit()
         conn.close()
 
-        return render_template("index.html", qr_code_base64=qr_code_base64)
+        # Generate and return PDF with QR-Code image
+        return generate_pdf(qr_code_base64)
 
+    # If no form data has been sent, render the index template
     return render_template("index.html")
 
-if __name__ == "__main__":
+if __name__ == "main":
+# Create tables for database if they do not exist
     create_tables()
+# Start the Flask application
     app.run(debug=True)
