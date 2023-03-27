@@ -37,7 +37,7 @@ Anschließend können Sie das Programm [app.py](https://github.com/denisepostl/p
 Sollte der flask Server nicht gestartet sein können Sie dies mit folgendem Befehl machen:
   - flask run 
 
-Nun sollte der Server gestartet sein und unter der gegebenen IP-Adresse erreichbar: <br><br>
+Nun sollte der Server gestartet sein und unter der gegebenen IP-Adresse erreichbar: <br>
 ![IP-Adress](https://github.com/denisepostl/pacman/blob/main/img/server.png)
 
 ## Beschreibung des Codes
