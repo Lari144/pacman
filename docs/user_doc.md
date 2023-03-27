@@ -18,5 +18,5 @@ Wenn Sie alle Details eingegeben haben, könnnen Sie mittels Klick auf submit de
 <br>
 
 ## QR-Code Downloaden
-Falls Sie den QR-Code herunterladen möchten, so können Sie dies über Download QR-Code machen: <br>
+Der Download Ihres QR-Codes startet automatisch als PDF nach übermitteln des vollständig ausgefüllten Formulars: <br>
 ![Downalod](https://github.com/denisepostl/pacman/blob/main/img/submit.png) <br>
