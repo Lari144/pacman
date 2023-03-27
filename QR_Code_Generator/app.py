@@ -57,7 +57,7 @@ def generate_pdf(qr_code_base64):
     """Generate PDF with QR-Code image and return the PDF document."""
     pdf = FPDF()
     pdf.add_page()
-    pdf.set_font("Arial", size=12)
+    pdf.set_font("Arial", size=28)
     pdf.cell(200, 10, txt="QR Code", ln=1)
     # Decode base64 string and save the image as a file
     with open("qr_code.png", "wb") as fh:
