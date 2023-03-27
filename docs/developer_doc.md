@@ -28,6 +28,18 @@ Wenn Sie die Bibliotheken bevorzugt manuell installieren möchten können Sie fo
   - pip install qrcode
   - pip install fpdf
 
+Um das Programm zu starten können Sie in den Ordner QR_Code_Generator navigieren:
+  - cd QR_Code_Generator
+
+Anschließend können Sie das Programm [app.py](https://github.com/denisepostl/pacman/blob/main/QR_Code_Generator/app.py) ausführen:
+  - python app.py
+
+Sollte der flask Server nicht gestartet sein können Sie dies mit folgendem Befehl machen:
+  - flask run
+
+Nun sollte der Server gestartet sein und unter der gegebenen IP-Adresse erreichbar:
+  - ![IP-Adress](https://github.com/denisepostl/pacman/blob/main/img/server.png)
+
 ## Beschreibung des Codes
 Das Programm besteht aus den folgenden Teilen:
 
