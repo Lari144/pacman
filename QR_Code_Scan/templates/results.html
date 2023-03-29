@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>QR Code Reader - Results</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<h1>Results</h1>
+	<h2>Customers</h2>
+	{% if customers %}
+		<ul>
+		{% for customer in customers %}
+			<li>{{ customer.first_name }} {{ customer.last_name }} - {{ customer.address }}</li>
+		{% endfor %}
+		</ul>
+	{% else %}
+		<p>No matching customers found.</p>
+	{% endif %}
+	<h2>Products</h2>
+	{% if products %}
+		<ul>
+		{% for product in products %}
+			<li>{{ product.description }} (Order date: {{ product.order_date }})</li>
+		{% endfor %}
+		</ul>
+	{% else %}
+		<p>No matching products found.</p>
+	{% endif %}
+	<h2>Locations</h2>
+	{% if locations %}
+		<ul>
+		{% for location in locations %}
+			<li>{{ location.description }}</li>
+		{% endfor %}
+		</ul>
+	{% else %}
+		<p>No matching locations found.</p>
+	{% endif %}
+	<h2>QR Codes</h2>
+	{% if qr_codes %}
+		<ul>
+		{% for qr_code in qr_codes %}
+			<li>{{ qr_code.description }}</li>
+		{% endfor %}
+		</ul>
+	{% else %}
+		<p>No matching QR codes found.</p>
+	{% endif %}
+</body>
+</html>
