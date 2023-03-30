@@ -20,3 +20,9 @@ Wenn Sie alle Details eingegeben haben, könnnen Sie mittels Klick auf submit de
 ## QR-Code Downloaden
 Der Download Ihres QR-Codes startet automatisch als PDF nach übermitteln des vollständig ausgefüllten Formulars: <br> <br>
 ![Downalod](https://github.com/denisepostl/pacman/blob/main/img/submit_pdf.png) <br>
+
+# QR-Code Scanner
+Der Flask Webserver kann auf gleiche Weise wie der QR-Code Generator gestartet werden. 
+
+## QR-Code Scan
+Mittels Klick auf Scan QR-Code 
