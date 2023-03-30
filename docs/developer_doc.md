@@ -108,4 +108,5 @@ Import von Flask, cv2 (OpenCV), numpy, pyzbar (für das Decodieren von QR-Codes)
     - "/results" Route, die die decodierte Information von decode_qr_code erfasst und sie dann an die Datenbank übermittelt, um nach passenden Ergebnissen zu suchen. 
 
 Wenn Ergebnisse gefunden werden, wird eine HTML-Datei gerendert, die die Ergebnisse anzeigt. Wenn keine Ergebnisse gefunden werden, wird eine entsprechende Fehlermeldung angezeigt.
-Die if __name__ == "__main__": Bedingung, die prüft, ob das Skript als Hauptprogramm ausgeführt wird.Anschließend wird die Flask-App gestartet und im Debug-Modus ausgeführt.
+
+Die if __name__ == "__main__": Bedingung, prüft, ob das Skript als Hauptprogramm ausgeführt wird. Anschließend wird die Flask-App gestartet und im Debug-Modus ausgeführt.
