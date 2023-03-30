@@ -53,17 +53,32 @@ def create_tables():
     conn.commit()
     conn.close()
 
-def generate_pdf(qr_code_base64):
+def generate_pdf(qr_code_base64, first_name, last_name, address, order_date, product_description, qr_description, location_description):
     """Generate PDF with QR-Code image and return the PDF document."""
     pdf = FPDF()
     pdf.add_page()
-    pdf.set_font("Arial", size=28)
-    pdf.cell(200, 10, txt="QR Code", ln=1)
+    pdf.set_font("Arial", size=12)
+    
     # Decode base64 string and save the image as a file
     with open("qr_code.png", "wb") as fh:
         fh.write(base64.b64decode(qr_code_base64))
-    pdf.image("qr_code.png", x=10, y=20, w=100)
+    pdf.image("qr_code.png", x=10, y=70, w=50)
     pdf.output("qr_code.pdf")
+
+    # Add customer information to the PDF document
+    pdf.cell(200, 10, txt=f"Name: {first_name} {last_name}", ln=1)
+    pdf.cell(200, 10, txt=f"Address: {address}", ln=1)
+    
+    # Add product information to the PDF document
+    pdf.cell(200, 10, txt=f"Order Date: {order_date}", ln=1)
+    pdf.cell(200, 10, txt=f"Product Description: {product_description}", ln=1)
+    
+    # Add QR description to the PDF document
+    pdf.cell(200, 10, txt=f"QR Description: {qr_description}", ln=1)
+    
+    # Add location description to the PDF document
+    pdf.cell(200, 10, txt=f"Location Description: {location_description}", ln=1)
+    
     # Delete the temporary image file
     os.remove("qr_code.png")
     return send_file("qr_code.pdf", as_attachment=True)
@@ -118,7 +133,7 @@ def index():
         conn.close()
 
         # Generate and return PDF with QR-Code image
-        return generate_pdf(qr_code_base64)
+        return generate_pdf(qr_code_base64, first_name, last_name, address, order_date, product_description, qr_description, location_description)
 
     # If no form data has been sent, render the index template
     return render_template("index.html")
