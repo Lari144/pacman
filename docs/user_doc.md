@@ -30,4 +30,4 @@ Mittels Klick auf Scan QR-Code wird Ihre Kamera gestartet.
 
 <br>
 Nun können Sie den QR-Code einscannen und anschließend sollten die Informationen aus der Datenbank gelesen werden.
-![QR-Scan-Ergebnis](https://github.com/denisepostl/pacman/blob/main/img/scan_result.png)
+![QR-Scan](https://github.com/denisepostl/pacman/blob/main/img/scan_result.png)
