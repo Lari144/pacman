@@ -1,8 +1,7 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template
 import cv2
 import numpy as np
 from pyzbar import pyzbar
-from PIL import ImageGrab
 import sqlite3
 
 app = Flask(__name__)
@@ -33,48 +32,41 @@ def query_database(qr_code_description):
 
     return results
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route("/")
 def index():
-    if request.method == 'POST':
-        screenshot = ImageGrab.grab()
-        screenshot_cv = cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)
-        qr_code_data = decode_qr_code(screenshot_cv)
-        
-        if qr_code_data:
-            database_result = query_database(qr_code_data)
-            
-            if database_result:
-                customers = []
-                products = []
-                locations = []
-                qr_codes = []
-                for record in database_result:
-                    customers.append({
-                        'id': record[0],
-                        'first_name': record[1],
-                        'last_name': record[2],
-                        'address': record[3]
-                    })
-                    products.append({
-                        'id': record[4],
-                        'order_date': record[6],
-                        'description': record[7]
-                    })
-                    if record[12] is not None:
-                        locations.append({
-                            'id': record[12],
-                            'description': record[13]
-                        })
-                    qr_codes.append({
-                        'id': record[8],
-                        'description': record[10]
-                    })
-                return render_template('results.html', customers=customers, products=products, locations=locations, qr_codes=qr_codes)
-            else:
-                return render_template('error.html', message='No matching records found in the database.')
-        else:
-            return render_template('error.html', message='No QR code detected in the screenshot.')
-    return render_template('index.html')
+    return render_template("index.html")
 
-if __name__ == '__main__':
-    app.run()
+@app.route("/results")
+def results():
+    cap = cv2.VideoCapture(0)
+
+    while True:
+        ret, frame = cap.read()
+
+        if not ret:
+            break
+
+        qr_code_data = decode_qr_code(frame)
+
+        if qr_code_data:
+            cap.release()
+            cv2.destroyAllWindows()
+
+            database_result = query_database(qr_code_data)
+
+            if database_result:
+                return render_template("results.html", records=database_result)
+            else:
+                return "No matching records found in the database."
+
+            break
+        else:
+            cv2.imshow("QR Code Scanner", frame)
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                break
+
+    cap.release()
+    cv2.destroyAllWindows()
+
+if __name__ == "__main__":
+    app.run(debug=True)
