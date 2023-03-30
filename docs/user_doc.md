@@ -25,4 +25,9 @@ Der Download Ihres QR-Codes startet automatisch als PDF nach übermitteln des vo
 Der Flask Webserver kann auf gleiche Weise wie der QR-Code Generator gestartet werden. 
 
 ## QR-Code Scan
-Mittels Klick auf Scan QR-Code 
+Mittels Klick auf Scan QR-Code wird Ihre Kamera gestartet.
+![QR-Scan](https://github.com/denisepostl/pacman/blob/main/img/Scan_QR.png)
+
+<br>
+Nun können Sie den QR-Code einscannen und anschließend sollten die Informationen aus der Datenbank gelesen werden.
+![QR-Scan-Ergebnis](https://github.com/denisepostl/pacman/blob/main/img/scan_result.png)
