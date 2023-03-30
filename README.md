@@ -2,12 +2,12 @@
 
 ## Ziele
     - QR-Code Generierung
-      - eigenes Backend (Dummy) zum testen erstellen --> Datenbank erstellen
+      - eigenes Backend (Dummy) zum Testen erstellen --> Datenbank erstellen
     - Informationen aus einem QR-Code lesen
-      - mit Handy/Webscanner
+      - mit Notebook-Kamera
  
 ### Ziel 23.03.2023
-    - Eine QR-Code Generierung für Testzwecke
+    - Fertiger QR-Code Generator
     
 ### Ziel 30.03.2023
     - Fertiger QR-Code Scanner
