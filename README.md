@@ -27,6 +27,6 @@ Für Testzwecke wird vorweg dieses Datenmodell verwendet.
 [Benutzerdokumentation](https://github.com/denisepostl/pacman/blob/main/docs/user_doc.md)
 
 ## Pflichtenheft
-Das Pflichtenheft befindet sich im [Dokumentationsordner]()
+Das Pflichtenheft befindet sich im [Dokumentationsordner](https://github.com/denisepostl/pacman/blob/main/docs/Pflichtenheft.pdf)
 
 
