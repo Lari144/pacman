@@ -55,3 +55,7 @@ Der __main__-Aufruf des Programms prüft, ob das Skript als Hauptprogramm ausgef
 
 # QR-Code Scanner
 Der Code für den QR-Code Scanner befindet sich unter [QR Code Scan](https://github.com/denisepostl/pacman/tree/main/QR_Code_Scan)
+
+Im Ordner Templates befindet sich die html-Datei für das Design des Generators. 
+Das Programm für die Hauptfunktionalität befindet sich in [app.py](https://github.com/denisepostl/pacman/blob/main/QR_Code_Scan/app.py)
+
