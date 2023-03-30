@@ -65,7 +65,7 @@ def results():
             database_result = query_database(qr_code_data)
 
             if database_result:
-                return render_template("results.html", records=database_result)
+                return render_template("results.html", results=database_result)
             else:
                 return "No matching records found in the database."
 
