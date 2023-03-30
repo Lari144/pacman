@@ -52,3 +52,10 @@ Die Flask-App hat nur eine Route /, auf die Anfragen per GET- oder POST-Methoden
 Die Funktion *index* verarbeitet die Formulardaten, indem sie eine Verbindung zur SQLite-Datenbank aufbaut und die Daten in die entsprechenden Tabellen einfügt. Danach wird ein QR-Code mit den vom Benutzer eingegebenen Daten generiert und als Base64-codierte Zeichenfolge gespeichert. Schließlich wird die Funktion *generate_pdf* aufgerufen, um eine PDF-Datei mit dem QR-Code zu erstellen.
 
 Der __main__-Aufruf des Programms prüft, ob das Skript als Hauptprogramm ausgeführt wird und ruft *create_tables* auf, um die Tabellen der Datenbank zu erstellen, falls sie noch nicht existieren. Danach wird die Flask-App gestartet und im Debug-Modus ausgeführt.
+
+# QR-Code Scanner
+Der Code für den QR-Code Scanner befindet sich unter [QR Code Scan](https://github.com/denisepostl/pacman/tree/main/QR_Code_Scan)
+
+Im Ordner Templates befindet sich die html-Datei für das Design des Generators. 
+Das Programm für die Hauptfunktionalität befindet sich in [app.py](https://github.com/denisepostl/pacman/blob/main/QR_Code_Scan/app.py)
+
