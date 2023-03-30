@@ -58,12 +58,6 @@ def generate_pdf(qr_code_base64, first_name, last_name, address, order_date, pro
     pdf = FPDF()
     pdf.add_page()
     pdf.set_font("Arial", size=12)
-    
-    # Decode base64 string and save the image as a file
-    with open("qr_code.png", "wb") as fh:
-        fh.write(base64.b64decode(qr_code_base64))
-    pdf.image("qr_code.png", x=10, y=70, w=50)
-    pdf.output("qr_code.pdf")
 
     # Add customer information to the PDF document
     pdf.cell(200, 10, txt=f"Name: {first_name} {last_name}", ln=1)
@@ -78,6 +72,12 @@ def generate_pdf(qr_code_base64, first_name, last_name, address, order_date, pro
     
     # Add location description to the PDF document
     pdf.cell(200, 10, txt=f"Location Description: {location_description}", ln=1)
+    
+    # Decode base64 string and save the image as a file
+    with open("qr_code.png", "wb") as fh:
+        fh.write(base64.b64decode(qr_code_base64))
+    pdf.image("qr_code.png", x=10, y=70, w=50)
+    pdf.output("qr_code.pdf")
     
     # Delete the temporary image file
     os.remove("qr_code.png")
