@@ -5,6 +5,13 @@
 	<title>QR-Code Scanner Ergebnisse</title>
 	<style>
 		<style>
+
+		 h1 {
+            font-size: 32px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
 		table {
 			border-collapse: collapse;
 			width: 100%;
@@ -33,18 +40,15 @@
 	</style>
 </head>
 <body>
-	<h1>QR-Code Scanner Ergebnisse</h1>
+	<h1>Paketdetails</h1>
 	<table>
 		<tr>
-			<th>Kunden-ID</th>
 			<th>Vorname</th>
 			<th>Nachname</th>
-			<th>Adresse</th>
-			<th>Produkt-ID</th>
-			<th>Bestelldatum</th>
 			<th>Bestellbeschreibung</th>
-			<th>Standortbeschreibung</th>
+			<th>Bestelldatum</th>
 			<th>QR-Code-Beschreibung</th>
+			<th>Standortbeschreibung</th>
 		</tr>
 		{% for record in results %}
 		<tr>
@@ -53,10 +57,7 @@
 			<td>{{ record[2] }}</td>
 			<td>{{ record[3] }}</td>
 			<td>{{ record[4] }}</td>
-			<td>{{ record[7] }}</td>
-			<td>{{ record[8] }}</td>
-			<td>{{ record[15] }}</td>
-			<td>{{ record[11] }}</td>
+			<td>{{ record[5] }}</td>
 		</tr>
 		{% endfor %}
 	</table>

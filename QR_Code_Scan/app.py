@@ -18,11 +18,21 @@ def query_database(qr_code_description):
     cursor = connection.cursor()
 
     cursor.execute("""
-    SELECT customers.*, products.*, qr_codes.*, locations.*
+    SELECT 
+	customers.First_Name, 
+	customers.Last_Name, 
+	products.description AS 'Produktbeschreibung', 
+	products.order_date, 
+	qr_codes.description AS 'QR-Beschreibung', 
+	locations.description AS 'Standort'
     FROM qr_codes
-    JOIN products ON qr_codes.product_id = products.product_id
-    JOIN customers ON products.customer_id = customers.customer_id
-    LEFT JOIN locations ON products.product_id = locations.product_id
+    JOIN products 
+	    ON qr_codes.product_id = products.product_id
+    JOIN customers 
+	    ON products.customer_id = customers.customer_id
+    LEFT JOIN locations 
+	    ON products.product_id = locations.product_id
+	
     WHERE qr_codes.description = ?
     """, (qr_code_description,))
 
