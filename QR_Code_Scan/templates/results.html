@@ -1,50 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>QR Code Reader - Results</title>
-	<meta charset="utf-8">
+	<meta charset="UTF-8">
+	<title>QR-Code Scanner Ergebnisse</title>
+	<style>
+		<style>
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			font-size: 1em;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		th, td {
+			padding: 10px;
+			text-align: left;
+			border: 1px solid #ddd;
+		}
+
+		th {
+			background-color: #f2f2f2;
+			font-weight: bold;
+		}
+
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+
+		tr:hover {
+			background-color: #ddd;
+		}
+	</style>
 </head>
 <body>
-	<h1>Results</h1>
-	<h2>Customers</h2>
-	{% if customers %}
-		<ul>
-		{% for customer in customers %}
-			<li>{{ customer.first_name }} {{ customer.last_name }} - {{ customer.address }}</li>
+	<h1>QR-Code Scanner Ergebnisse</h1>
+	<table>
+		<tr>
+			<th>Kunden-ID</th>
+			<th>Vorname</th>
+			<th>Nachname</th>
+			<th>Adresse</th>
+			<th>Produkt-ID</th>
+			<th>Bestelldatum</th>
+			<th>Bestellbeschreibung</th>
+			<th>Standortbeschreibung</th>
+			<th>QR-Code-Beschreibung</th>
+		</tr>
+		{% for record in results %}
+		<tr>
+			<td>{{ record[0] }}</td>
+			<td>{{ record[1] }}</td>
+			<td>{{ record[2] }}</td>
+			<td>{{ record[3] }}</td>
+			<td>{{ record[4] }}</td>
+			<td>{{ record[7] }}</td>
+			<td>{{ record[8] }}</td>
+			<td>{{ record[15] }}</td>
+			<td>{{ record[11] }}</td>
+		</tr>
 		{% endfor %}
-		</ul>
-	{% else %}
-		<p>No matching customers found.</p>
-	{% endif %}
-	<h2>Products</h2>
-	{% if products %}
-		<ul>
-		{% for product in products %}
-			<li>{{ product.description }} (Order date: {{ product.order_date }})</li>
-		{% endfor %}
-		</ul>
-	{% else %}
-		<p>No matching products found.</p>
-	{% endif %}
-	<h2>Locations</h2>
-	{% if locations %}
-		<ul>
-		{% for location in locations %}
-			<li>{{ location.description }}</li>
-		{% endfor %}
-		</ul>
-	{% else %}
-		<p>No matching locations found.</p>
-	{% endif %}
-	<h2>QR Codes</h2>
-	{% if qr_codes %}
-		<ul>
-		{% for qr_code in qr_codes %}
-			<li>{{ qr_code.description }}</li>
-		{% endfor %}
-		</ul>
-	{% else %}
-		<p>No matching QR codes found.</p>
-	{% endif %}
+	</table>
 </body>
 </html>
