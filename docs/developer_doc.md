@@ -98,14 +98,14 @@ Dieser Code implementiert eine QR-Code-Scanner-Webanwendung mit Python Flask.
 
 Die Anwendung besteht aus folgenden Komponenten:
 
-Import von Flask, cv2 (OpenCV), numpy, pyzbar (für das Decodieren von QR-Codes) und sqlite3.
+  - Import von Flask, cv2 (OpenCV), numpy, pyzbar (für das Decodieren von QR-Codes) und sqlite3.
 
   - Die Funktion *decode_qr_code*, die ein OpenCV-Bild erwartet und den darin enthaltenen QR-Code decodiert. Sie gibt die decodierte Information als Unicode-Zeichenfolge zurück oder None, wenn kein QR-Code im Bild gefunden wurde. <br>
 
-  - Die Funktion query_database, die die decodierte Information an die SQLite-Datenbank übermittelt und nach passenden Datensätzen sucht. Wenn Datensätze gefunden werden, gibt sie eine Liste von Tupeln zurück, wobei jedes Tupel eine Zeile der Ergebnisse darstellt. Andernfalls gibt sie eine entsprechende Fehlermeldung zurück. <br>
+  - Die Funktion *query_database*, die die decodierte Information an die SQLite-Datenbank übermittelt und nach passenden Datensätzen sucht. Wenn Datensätze gefunden werden, gibt sie eine Liste von Tupeln zurück, wobei jedes Tupel eine Zeile der Ergebnisse darstellt. Andernfalls gibt sie eine entsprechende Fehlermeldung zurück. <br>
   - Eine Flask-App, die zwei Routen hat:
-    - "/" Route, die eine HTML-Datei rendert, in der ein Live-Video-Feed des Webkamerabildschirms des Benutzers angezeigt wird.
-    - "/results" Route, die die decodierte Information von decode_qr_code erfasst und sie dann an die Datenbank übermittelt, um nach passenden Ergebnissen zu suchen. 
+    - **"/" Route**, die eine HTML-Datei rendert, in der ein Live-Video-Feed des Webkamerabildschirms des Benutzers angezeigt wird.
+    - **"/results"** Route, die die decodierte Information von decode_qr_code erfasst und sie dann an die Datenbank übermittelt, um nach passenden Ergebnissen zu suchen. 
 
 Wenn Ergebnisse gefunden werden, wird eine HTML-Datei gerendert, die die Ergebnisse anzeigt. Wenn keine Ergebnisse gefunden werden, wird eine entsprechende Fehlermeldung angezeigt.
 
