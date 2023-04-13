@@ -42,11 +42,11 @@ def index():
 
 @app.route("/", methods=["GET", "POST"]) <br>
 def index(): <br>
-    return render_template("index.html") //Die "Main-Page" soll retourniert werden
+  return render_template("index.html") //Die "Main-Page" soll retourniert werden
     
 @app.route("/results") <br>
 def results(): <br>
-    QR-Code von Bild lesen, nach passenden Eintrag in einer Datenbank suchen und Ergebnisse auf einer anderen Page retournieren
+  QR-Code von Bild lesen, nach passenden Eintrag in einer Datenbank suchen und Ergebnisse auf einer anderen Page retournieren
     
 
 ## Applikation
