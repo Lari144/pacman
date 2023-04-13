@@ -32,17 +32,23 @@ Das Pflichtenheft befindet sich im [Dokumentationsordner](https://github.com/den
 ## API Schnittstellen-Überlegung
 Wir haben uns für das Python-Webframework Flask entschieden.
 
-### API QR-Generator
+### Index
 
 @app.route("/", methods=["GET", "POST"]) 
 def index():
+    return render_template("index.html")
+    
+### API QR-Generator
+
+@app.route("/", methods=["GET", "POST"]) 
+def generate_qr_code():
     Formulardaten lesen, in der Datenbank speichern, einen QR-Code generieren und PDF erstellen.
 
 ### API QR-Scanner
 
 @app.route("/", methods=["GET", "POST"]) <br>
-def index(): <br>
-  return render_template("index.html") //Die "Main-Page" soll retourniert werden
+def index_scan(): <br>
+  return render_template("index_scan.html") //Die "Main-Page" soll retourniert werden
     
 @app.route("/results") <br>
 def results(): <br>
