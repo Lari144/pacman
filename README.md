@@ -57,7 +57,6 @@ Welche Daten würden wir brauchen?
 Folgende Daten könnten wir brauchen:
 
     - Postoffice (ID, Location_ID)
-    
     - Warehouse (ID, Location_ID)
     - Person (ID, First_Name, Last_Name)
     - Adress (ID, PostCode, City, Street, )
