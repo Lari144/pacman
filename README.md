@@ -51,7 +51,7 @@ def results():
 
 ## Applikaiton
 Welche Daten würden wir brauchen?
-- Wir würden für unseren QR-Code Scanner die notwendigen Daten brauchen, die der Benutzer eingibt. Dafür könnten wir ein Formular erstellen und diese in der Datenbank speichern. Damit wir zur Datenbank kommen, würden wir eine API des Datenbank-Projektes benötigen und müssten diese in unserem Code einbinden und unsere Test-Datenbank löschen.
+- Wir würden für unseren QR-Code Scanner die notwendigen Daten brauchen, die der Benutzer eingibt. Dafür könnten wir ein Formular erstellen und die eingegebenen Daten in der Datenbank speichern. Damit wir zur Datenbank kommen, würden wir eine API des Datenbank-Projektes benötigen und müssten diese in unserem Code einbinden und unsere Test-Datenbank löschen.
 - Für unseren QR-Generator brauchen wir wieder eine Anbindung zur Datenbank. Wir müssten die API des Datenbank-Projektes wieder einbinden und so haben wir zugriff auf alle Daten in der Datenbank. 
 
 Folgende Daten könnten wir brauchen:
