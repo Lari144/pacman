@@ -58,11 +58,11 @@ Folgende Daten könnten wir brauchen:
 
     - Postoffice (ID, Location_ID)
     - Warehouse (ID, Location_ID)
-    - Person (ID, First_Name, Last_Name)
-    - Adress (ID, PostCode, City, Street, )
+    - Person (ID, FirstName, LastName)
+    - Adress (ID, PostCode, City, Street, HouseNr)
     - Phone (ID, Phone)
     - Location (ID, Adress_ID, Coords)
-    - QR_Code (ID, QR_Code)
+    - QR_Code (ID, QRCode)
     - Package (ID, Name, Description, QR_Code_ID)
     
 
