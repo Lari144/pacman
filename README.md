@@ -55,7 +55,9 @@ Welche Daten würden wir brauchen?
 - Für unseren QR-Generator brauchen wir wieder eine Anbindung zur Datenbank. Wir müssten die API des Datenbank-Projektes wieder einbinden und so haben wir zugriff auf alle Daten in der Datenbank. 
 
 Folgende Daten könnten wir brauchen:
+
     - Postoffice (ID, Location_ID)
+    
     - Warehouse (ID, Location_ID)
     - Person (ID, First_Name, Last_Name)
     - Adress (ID, PostCode, City, Street, )
